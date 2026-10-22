@@ -1,7 +1,7 @@
 "use strict";
 
 // Smooth-scroll for the CTA button
-const ctaButton = document.getElementById("cta-btn")
+const ctaButton = document.getElementById("cta-btn");
 if (ctaButton) {
   ctaButton.addEventListener("click", function () {
     document.getElementById("features").scrollIntoView({ behavior: "smooth" });
