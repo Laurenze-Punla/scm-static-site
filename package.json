@@ -1,0 +1,14 @@
+{
+  "name": "scm-static-site",
+  "version": "1.0.0",
+  "description": "Static site with GitHub Actions CI/CD and ESLint quality checks",
+  "private": true,
+  "scripts": {
+    "lint": "eslint js/"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "globals": "^15.0.0"
+  }
+}

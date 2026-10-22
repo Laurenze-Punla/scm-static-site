@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCM Static Site</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">SCM Demo</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Software Configuration Management</h1>
+      <p>A static site deployed with GitHub Actions &amp; GitHub Pages</p>
+      <button id="cta-btn" class="btn">Learn More</button>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <h2>Key SCM Concepts</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🔀</div>
+        <h3>Version Control</h3>
+        <p>Track changes, collaborate, and maintain a complete history of your codebase with Git.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>CI/CD Pipelines</h3>
+        <p>Automate building, testing, and deploying your applications with GitHub Actions.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✅</div>
+        <h3>Quality Checks</h3>
+        <p>Enforce code quality with automated linting and testing before every deployment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About This Project</h2>
+    <p>
+      This static site demonstrates a complete SCM workflow: code is pushed to GitHub,
+      a CI/CD pipeline runs ESLint for quality checks, and on success the site is
+      automatically published to GitHub Pages.
+    </p>
+    <div id="build-info" class="build-info"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 SCM Demo &mdash; Built with GitHub Actions</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
