@@ -185,6 +185,21 @@ nav {
   font-size: 0.9rem;
 }
 
+/* ===== Welcome Banner ===== */
+.welcome-banner {
+  text-align: center;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ===== Footer ===== */
 footer {
   text-align: center;

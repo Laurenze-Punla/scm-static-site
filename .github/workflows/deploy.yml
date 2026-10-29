@@ -1,5 +1,5 @@
-# CI/CD Pipeline: Lint + Deploy to GitHub Pages
-name: Lint & Deploy to GitHub Pages
+# CI/CD Pipeline: Lint + Test + Deploy to GitHub Pages
+name: Lint, Test & Deploy to GitHub Pages
 
 on:
   push:
@@ -41,12 +41,36 @@ jobs:
         run: npm run lint
 
   # ──────────────────────────────────────────────
-  # Job 2: Build & Deploy — GitHub Pages
+  # Job 2: Unit Tests — Jest
   # (only runs if lint passes)
+  # ──────────────────────────────────────────────
+  test:
+    name: Jest Unit Tests
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Jest tests
+        run: npm test
+
+  # ──────────────────────────────────────────────
+  # Job 3: Build & Deploy — GitHub Pages
+  # (only runs if BOTH lint AND test pass)
   # ──────────────────────────────────────────────
   deploy:
     name: Deploy to GitHub Pages
-    needs: lint
+    needs: [lint, test]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
