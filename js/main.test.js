@@ -3,9 +3,8 @@
 /**
  * Jest tests for onPageLoad()
  *
- * DEMO COMMIT 1 — Failing Test
- * The second test deliberately asserts the wrong expected value
- * to show the test job blocking deployment.
+ * DEMO COMMIT 2 — All Tests Passing
+ * Both tests now assert correct values, unblocking the deploy job.
  */
 
 const { onPageLoad } = require("./main");
@@ -13,7 +12,7 @@ const { onPageLoad } = require("./main");
 // ─── Test Suite ───────────────────────────────────────────────────────────────
 
 describe("onPageLoad()", () => {
-  // ── PASSING TEST ──────────────────────────────────────────────────────────
+  // ── PASSING TEST 1 ────────────────────────────────────────────────────────
   test("returns a welcome message containing the provided username", () => {
     const result = onPageLoad("Alice");
     expect(result.message).toBe(
@@ -21,12 +20,10 @@ describe("onPageLoad()", () => {
     );
   });
 
-  // ── FAILING TEST (intentional) ────────────────────────────────────────────
-  // This test expects the wrong string on purpose to demonstrate the
-  // test gate blocking the deploy job.
-  test("INTENTIONAL FAIL: returns a numeric timestamp", () => {
+  // ── PASSING TEST 2 ────────────────────────────────────────────────────────
+  // Fixed: timestamp is indeed a number, so we assert 'number'.
+  test("returns a numeric timestamp", () => {
     const result = onPageLoad("Alice");
-    // Wrong assertion — timestamp is a number, not a string
-    expect(typeof result.timestamp).toBe("string"); // ← will fail; it is 'number'
+    expect(typeof result.timestamp).toBe("number"); // ← correct assertion
   });
 });
